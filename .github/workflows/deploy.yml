@@ -1,0 +1,23 @@
+name: Deploy WebGL to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # main 브랜치에 push 될 때 자동 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # WebGL 빌드가 로컬에서 이미 있고 commit 되어 있는 경우
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./WebGLBuild   # 빌드 결과물 경로
