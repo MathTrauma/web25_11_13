@@ -20,4 +20,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./WebGLBuild   # 빌드 결과물 경로
+          publish_dir: ./Build   # 빌드 결과물 경로
